@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>31901-2011 การจัดการระบบเครือข่าย (Network Management) — นางสาวศิริกัลยา คำนนท์ วิทยาลัยเทคนิคนครนายก</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-badge">
+          <span>🌐</span>
+          <span>รหัสวิชา 31901-2011</span>
+        </div>
+        <h1>การจัดการระบบเครือข่าย</h1>
+        <p>Network Management (ปวส. 2567)</p>
+        <p style="margin-top:4px; font-size:0.76rem; color:#38bdf8;">ทฤษฎี 1 ชม. | ปฏิบัติ 4 ชม. | 3 หน่วยกิต</p>
+      </div>
+
+      <div class="sidebar-teacher">
+        <div style="font-size:0.72rem; color:#94a3b8; text-transform:uppercase; letter-spacing:0.04em;">ครูผู้สอนประจำรายวิชา</div>
+        <div class="teacher-name">นางสาวศิริกัลยา คำนนท์</div>
+        <div class="teacher-role">ตำแหน่ง ครูชำนาญการพิเศษ</div>
+        <div class="teacher-role">แผนกวิชาเทคโนโลยีสารสนเทศ</div>
+        <div class="teacher-role" style="color:#e2e8f0; font-weight:500;">วิทยาลัยเทคนิคนครนายก (สอศ.)</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">ระบบจัดการเรียนรู้ (LMS)</div>
+        <button class="nav-btn active" data-view="dashboard" onclick="navigateTo('dashboard')">
+          <span class="nav-icon">🏠</span>
+          <span>หน้าแรก & แผนการเรียน</span>
+        </button>
+        <button class="nav-btn" data-view="curriculum" onclick="navigateTo('curriculum')">
+          <span class="nav-icon">📜</span>
+          <span>หลักสูตร & ตารางวิเคราะห์</span>
+        </button>
+
+        <div class="nav-section-title">สื่อการเรียนรู้ 14 สัปดาห์</div>
+        <button class="nav-btn" data-view="knowledge" onclick="navigateTo('knowledge')">
+          <span class="nav-icon">📖</span>
+          <span>ใบความรู้ ที่ 1 - 14</span>
+          <span class="nav-badge">14</span>
+        </button>
+        <button class="nav-btn" data-view="activity" onclick="navigateTo('activity')">
+          <span class="nav-icon">💡</span>
+          <span>ใบกิจกรรม ที่ 1 - 14</span>
+          <span class="nav-badge">14</span>
+        </button>
+        <button class="nav-btn" data-view="jobsheet" onclick="navigateTo('jobsheet')">
+          <span class="nav-icon">🛠️</span>
+          <span>ใบงาน ที่ 1 - 14</span>
+          <span class="nav-badge">14</span>
+        </button>
+        <button class="nav-btn" data-view="assignment" onclick="navigateTo('assignment')">
+          <span class="nav-icon">📋</span>
+          <span>ใบมอบหมายงาน ที่ 1 - 14</span>
+          <span class="nav-badge">14</span>
+        </button>
+
+        <div class="nav-section-title">การวัดผลและห้องแล็บจำลอง</div>
+        <button class="nav-btn" data-view="quizzes" onclick="navigateTo('quizzes')">
+          <span class="nav-icon">📝</span>
+          <span>แบบทดสอบก่อน-หลังเรียน</span>
+          <span class="nav-badge" id="badge-quizzes">0/14</span>
+        </button>
+        <button class="nav-btn" data-view="simulator" onclick="navigateTo('simulator')">
+          <span class="nav-icon">💻</span>
+          <span>ห้องแล็บจำลอง CLI & เครื่องมือ</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div>ประเภทวิชาอุตสาหกรรมดิจิทัลและเทคโนโลยีสารสนเทศ</div>
+        <div>กลุ่มอาชีพซอฟต์แวร์และการประยุกต์</div>
+        <div>สาขาวิชาเทคโนโลยีสารสนเทศ</div>
+      </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+      <!-- Top Header -->
+      <header class="top-header">
+        <div class="header-info">
+          <h2>31901-2011 การจัดการระบบเครือข่าย (Network Management)</h2>
+          <p>หลักสูตรประกาศนียบัตรวิชาชีพชั้นสูง พุทธศักราช 2567 • วิทยาลัยเทคนิคนครนายก สำนักงานคณะกรรมการการอาชีวศึกษา</p>
+        </div>
+        <div class="header-actions">
+          <div class="student-pill" title="ระบุชื่อ-สกุลผู้เรียนเพื่อแสดงในหัวกระดาษเวลาสั่งพิมพ์ใบงาน">
+            <span>👨‍🎓 ผู้เรียน:</span>
+            <input
+              type="text"
+              id="student-name-input"
+              placeholder="พิมพ์ชื่อ-สกุล / รหัส..."
+              oninput="updateStudentProfile()"
+            >
+          </div>
+          <button class="btn btn-outline btn-sm" onclick="window.print()">
+            🖨️ พิมพ์หน้านี้ / บันทึก PDF
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Dynamic Content -->
+      <main class="content-area" id="main-content-container">
+        <!-- Rendered by app.js -->
+      </main>
+
+      <!-- Site Footer with Visitor Counter -->
+      <footer class="site-footer no-print">
+        <div class="footer-container">
+          <div>
+            <div class="footer-course-title">
+              🌐 รายวิชา 31901-2011 การจัดการระบบเครือข่าย (Network Management)
+            </div>
+            <div class="footer-instructor">
+              โดย นางสาวศิริกัลยา คำนนท์ ตำแหน่ง ครูชำนาญการพิเศษ
+            </div>
+            <div class="footer-org">
+              แผนกวิชาเทคโนโลยีสารสนเทศ วิทยาลัยเทคนิคนครนายก สำนักงานคณะกรรมการการอาชีวศึกษา กระทรวงศึกษาธิการ<br>
+              หลักสูตรประกาศนียบัตรวิชาชีพชั้นสูง พุทธศักราช 2567 • ประเภทวิชาอุตสาหกรรมดิจิทัลและเทคโนโลยีสารสนเทศ • สาขาวิชาเทคโนโลยีสารสนเทศ
+            </div>
+          </div>
+
+          <div class="visitor-counter-box">
+            <div class="visitor-header-row">
+              <div class="visitor-title">
+                <span>📊</span>
+                <span>สถิติจำนวนผู้เข้าชมเว็บไซต์ (Visitor Counter)</span>
+              </div>
+              <div class="online-indicator">
+                <span class="online-dot"></span>
+                <span>ออนไลน์ขณะนี้: <span id="visitor-online-now">1</span> คน</span>
+              </div>
+            </div>
+
+            <div class="visitor-digits-row">
+              <div>
+                <div style="font-size:0.75rem; color:#94a3b8; margin-bottom:4px;">จำนวนผู้เข้าชมสะสมทั้งหมด (ครั้ง)</div>
+                <div class="odometer-digits" id="visitor-odometer">
+                  <span class="odo-digit">0</span>
+                  <span class="odo-digit">0</span>
+                  <span class="odo-digit">1</span>
+                  <span class="odo-digit">2</span>
+                  <span class="odo-digit">5</span>
+                  <span class="odo-digit">0</span>
+                </div>
+              </div>
+
+              <div class="visitor-substats">
+                <div class="visitor-substat-item">
+                  📅 วันนี้: <strong id="visitor-today-count">1</strong> ครั้ง
+                </div>
+                <div class="visitor-substat-item">
+                  👤 เครื่องของคุณ: <strong id="visitor-user-sessions">1</strong> ครั้ง
+                </div>
+              </div>
+            </div>
+
+            <div style="font-size:0.74rem; color:#64748b; display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; border-top:1px solid rgba(255,255,255,0.08); padding-top:8px;">
+              <span>เข้าชมล่าสุด: <span id="visitor-last-time">-</span></span>
+              <span>© 2567 แผนกวิชาเทคโนโลยีสารสนเทศ วิทยาลัยเทคนิคนครนายก</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data-curriculum.js"></script>
+  <script src="data-sheets-1.js"></script>
+  <script src="data-sheets-2.js"></script>
+  <script src="data-quizzes.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
